@@ -1,2 +1,4 @@
 venv
-locaal-cdn
+local-cdn
+__pycache__
+db.sqlite3
