@@ -1,0 +1,2 @@
+Creating a simple web application with django and using tailwindcss for user interface of the application.
+This project backend is on django. Two other projects are also been made whose backend is on fastapi and flask. 
