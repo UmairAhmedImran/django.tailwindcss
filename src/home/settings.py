@@ -15,6 +15,20 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+# import psycopg
+# from psycopg2.extras import RealDictCursor
+# try:
+#     conn = psycopg.connect(host=os.environ.get('DATABASE_HOST'), database=os.environ.get('DATABSE_NAME'), user=os.environ.get('DATABASE_USER'),
+#                            password=os.environ.get('DATABASE_PASSWORD'), cursor_factory=RealDictCursor)
+#     cursor = conn.cursor()
+#     print("DATABASE connection succesfull")
+# except Exception as e:
+#     print("Failed")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -74,9 +88,13 @@ WSGI_APPLICATION = 'home.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ.get('DATABASE_NAME'),
+        "USER": os.environ.get('DATABASE_USER'),
+        "PASSWORD": os.environ.get('DATABASE_PASSWORD'),
+        "HOST": os.environ.get('DATABASE_HOST'),
+        "PORT": os.environ.get('DATABASE_PORT'),
     }
 }
 
