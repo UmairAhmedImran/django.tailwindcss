@@ -4,7 +4,8 @@
 
 {% block content %}
 <div class="flex justify-start h-screen bg-gradient-to-l from-slate-700 to-slate-400">
-<form>
+<form action="{% url 'login' %}" method="post">
+  {% csrf_token %}
     <div class="max-w-md mt-52 ml-60">
     <div class="mb-6">
       <label for="email" class="block mb-2 text-base font-bold text-gray-900 dark:text-white">Your email</label>
